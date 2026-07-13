@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.25/dist/sweetalert2.min.css">
+  <title>Panadería del Barrio</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Panadería del Barrio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPanaderia">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPanaderia">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="/panesEspeciales">Panes especiales</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <input id="buscador" class="form-control" placeholder="Buscar pan" maxlength="30">
+          <button id="btnModoOscuro" class="btn btn-outline-light">Modo oscuro</button>
+          <button id="botonCarrito" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalCarrito"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero text-center py-5">
+    <h1 id="tituloPrincipal">Panadería del Barrio</h1>
+    <p>dulce de leche.</p>
+  </header>
+
+  <main class="container py-4">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <select id="selectOrden" class="form-select">
+          <option value="0">Ordenar por</option>
+          <option value="1">Mayor a menor</option>
+          <option value="2">Menor a mayor</option>
+          <option value="3">Nombre A-Z</option>
+        </select>
+      </div>
+      <div class="col-md-6 text-end">
+        <button id="reloj" class="btn btn-outline-secondary"></button>
+      </div>
+    </div>
+    <div id="containerLibros" class="row"></div>
+  </main>
+
+  <div class="modal fade" id="modalCarrito" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tu pedido</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="modalBodyCarrito"></div>
+        <div class="modal-footer">
+          <p class="me-auto" id="totalCarrito"></p>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn btn-success" id="botonFinalizarCompra">Confirmar pedido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.25/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.7.2/build/global/luxon.min.js"></script>
+  <script src="class.js"></script>
+  <script src="proyectoDOM.js"></script>
+  <script src="modoOscuro.js"></script>
+</body>
+</html>
